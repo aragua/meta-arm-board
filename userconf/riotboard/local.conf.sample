@@ -1,0 +1,29 @@
+MACHINE ?= "riotboard"
+SDKMACHINE ?= "i686"
+
+DISTRO ?= "poky"
+EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
+RM_OLD_IMAGE = "1"
+INHERIT += "rm_work"
+RM_WORK_EXCLUDE += ""
+
+PACKAGE_FEED_URIS = "http://192.168.1.76:8000/"
+
+DL_DIR = "${TOPDIR}/../downloads/"
+
+USER_CLASSES ?= "buildstats image-mklibs image-prelink"
+
+BB_DISKMON_DIRS = "\
+    STOPTASKS,${TMPDIR},1G,100K \
+    STOPTASKS,${DL_DIR},1G,100K \
+    STOPTASKS,${SSTATE_DIR},1G,100K \
+    STOPTASKS,/tmp,100M,100K \
+    ABORT,${TMPDIR},100M,1K \
+    ABORT,${DL_DIR},100M,1K \
+    ABORT,${SSTATE_DIR},100M,1K \
+    ABORT,/tmp,10M,1K"
+
+PACKAGECONFIG_append_pn-qemu-native = " sdl"
+PACKAGECONFIG_append_pn-nativesdk-qemu = " sdl"
+
+CONF_VERSION = "1"
