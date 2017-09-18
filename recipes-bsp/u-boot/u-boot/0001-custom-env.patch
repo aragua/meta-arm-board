@@ -12,15 +12,6 @@ diff --git a/include/configs/embestmx6boards.h b/include/configs/embestmx6boards
 index 2106e8640b..66d576d386 100644
 --- a/include/configs/embestmx6boards.h
 +++ b/include/configs/embestmx6boards.h
-@@ -15,7 +15,7 @@
- 
- #define CONFIG_MXC_UART_BASE		UART2_BASE
- #define CONSOLE_DEV		"ttymxc1"
--#define CONFIG_MMCROOT			"/dev/mmcblk1p2"
-+#define CONFIG_MMCROOT			"/dev/mmcblk0p1"
- 
- #define PHYS_SDRAM_SIZE		(1u * 1024 * 1024 * 1024)
- 
 @@ -128,9 +128,11 @@
  #define CONFIG_IMX_HDMI
  #define CONFIG_IMX_VIDEO_SKIP
